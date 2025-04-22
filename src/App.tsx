@@ -1,32 +1,20 @@
-import { useState } from 'react'
+import { Outlet } from "react-router-dom";
+// ajuste os caminhos se necessário
+import { Header } from "@/components/utils/Header"; 
+import { Footer } from "@/components/utils/Footer";
+import "./styles/globals.css";
+import { Toaster } from "@/components/ui/toaster";
 
-function App() {
-  const [count, setCount] = useState(0)
 
+// import { Footer } from "./pages/landing/components/Footer";
+
+export function App() {
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          
-        </a>
-        <a href="https://react.dev" target="_blank">
-          
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <Header />
+      <Outlet />
+      <Footer />
+      <Toaster />
     </>
-  )
+  );
 }
-
-export default App
